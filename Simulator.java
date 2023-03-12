@@ -1,33 +1,36 @@
 // David Arzumanyan
-//package org.example;
+package org.example;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Simulator {
 
     public static void main(String[] args) {
 
         // Creating spaces for 5 aircraft
-        ArrayList<Aircraft> aircraft = new ArrayList<Aircraft>(5);
 
-        // Declaring all aircraft
-        aircraft.add(new Airplane(130));
-        aircraft.add(new Airplane(250));
-        aircraft.add(new Helicopter(5));
-        aircraft.add(new Helicopter(4));
-        aircraft.add(new Helicopter(6));
+        ArrayList<Aircraft> aircrafts = new ArrayList<Aircraft>(5);
+        aircrafts.add(new Helicopter(6,"H155 Airbus"));
+        aircrafts.add(new Helicopter(5,"Bell 212"));
+        aircrafts.add(new Helicopter(8,"Agusta AW169"));
+        aircrafts.add(new Airplane(400, "Airbus A300-600ST"));
+        aircrafts.add(new Airplane(380, "Beluga"));
 
+        Random random = new Random();
 
         // Printing all information about the aircraft and its movements
 
-        for (Aircraft aircraft_object : aircraft){
-
-            System.out.println(aircraft_object.toString());
-            aircraft_object.take_off(80,5,1456,-78623);
-            aircraft_object.fly(200);
-            aircraft_object.land(35,2,87567,-2989);
+        for(int i = 0; i < 5; i++){
+            Aircraft random_aircraft = aircrafts.get(random.nextInt(aircrafts.size()));
+            System.out.println(random_aircraft.toString());
+            random_aircraft.take_off(80,5,1456,-78623);
+            random_aircraft.fly(200);
+            random_aircraft.land(35,2,87567,-2989);
             System.out.println("");
         }
+
+
 
     }
 }

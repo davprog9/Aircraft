@@ -1,5 +1,5 @@
 // David Arzumanyan
-//package org.example;
+package org.example;
 
 public class Airplane extends Aircraft{
 
@@ -17,10 +17,11 @@ public class Airplane extends Aircraft{
     /**
      * Main constructor with the following parameter`
      * @param seats_capacity defines the seats capacity for the aircraft
+     * @param name_of_aircraft defines the name of the aircraft
      * @author David Arzumanyan
      */
-    public Airplane(int seats_capacity) {
-        super("Airplane");
+    public Airplane(int seats_capacity, String name_of_aircraft) {
+        super("Airplane", name_of_aircraft);
         this.seats_capacity = seats_capacity;
     }
 
@@ -40,7 +41,7 @@ public class Airplane extends Aircraft{
      */
     @Override
     public void fly(int speed){
-        System.out.println("The " + getType_of_aircraft() + " is moving with " + speed + "mph!");
+        System.out.println("The " + getType_of_aircraft() + " is flying with " + speed + "mph!");
     }
 
 
@@ -53,7 +54,7 @@ public class Airplane extends Aircraft{
      */
     @Override
     public void take_off(int speed, int distance, int vertical_cord, int horizontal_cord){
-        System.out.println("Taking off the " + getType_of_aircraft() + " with a speed " + speed + "mph in " + distance + " miles.\nCoordinates (" + vertical_cord + ":" + horizontal_cord + ")");
+        System.out.println("Taking off the " + getType_of_aircraft() + " with a speed " + speed + "mph in " + distance + " miles. | Coordinates (" + vertical_cord + ":" + horizontal_cord + ")");
     }
 
 
@@ -65,7 +66,7 @@ public class Airplane extends Aircraft{
      * @param horizontal_cord defines horizontal coordinates for landing
      */
     public void land(int speed, int distance, int vertical_cord, int horizontal_cord){
-        System.out.println("Landing the " + getType_of_aircraft() + " in " + distance + " miles\nCoordinates (" + vertical_cord + ":" + horizontal_cord + ")");
+        System.out.println("Landing the " + getType_of_aircraft() + " in " + distance + " miles | Coordinates (" + vertical_cord + ":" + horizontal_cord + ")");
     }
 
 
@@ -76,6 +77,6 @@ public class Airplane extends Aircraft{
      */
     @Override
     public String toString(){
-        return "Type of aircraft: " + getType_of_aircraft() + " Seats capacity: " + this.seats_capacity + "";
+        return "Type of aircraft: " + getType_of_aircraft() + " Name of aircraft: " + this.name_of_aircraft + " Seats capacity: " + this.seats_capacity;
     }
 }

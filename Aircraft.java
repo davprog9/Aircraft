@@ -1,9 +1,10 @@
 // David Arzumanyan
-//package org.example;
+package org.example;
 
 public abstract class Aircraft implements Flyable{
 
     private final String type_of_aircraft;
+    protected String name_of_aircraft;
 
     /**
      * Default constructor
@@ -11,17 +12,19 @@ public abstract class Aircraft implements Flyable{
      */
     public Aircraft(){
         this.type_of_aircraft = "N/A";
+        this.name_of_aircraft = "N/A";
     }
 
     /**
      * Main constructor with the following parameter`
      * @param type_of_aircraft defines the type of the aircraft
+     * @param name_of_aircraft defines the name of the aircraft
      * @author David Arzumanyan
      */
-    public Aircraft(String type_of_aircraft){
+    public Aircraft(String type_of_aircraft, String name_of_aircraft){
         this.type_of_aircraft = type_of_aircraft;
+        this.name_of_aircraft = name_of_aircraft;
     }
-
 
     /**
      * Getter for the type of aircraft
@@ -31,6 +34,25 @@ public abstract class Aircraft implements Flyable{
     public String getType_of_aircraft() {
         return type_of_aircraft;
     }
+
+    /**
+     * Getter for aircraft
+     * @return Returns data type String
+     * @author David Arzumanyan
+     */
+    public String getName_of_aircraft() {
+        return name_of_aircraft;
+    }
+
+    /**
+     * Setter for aircraft
+     * @param name_of_aircraft defines the new name of the aircraft
+     * @author David Arzumanyan
+     */
+    public void setName_of_aircraft(String name_of_aircraft) {
+        this.name_of_aircraft = name_of_aircraft;
+    }
+
 
     // Below are methods from Flyable interface
 
@@ -53,7 +75,7 @@ public abstract class Aircraft implements Flyable{
      */
     @Override
     public void take_off(int speed, int distance, int vertical_cord, int horizontal_cord){
-        System.out.println("Taking off the " + this.type_of_aircraft + " with a speed " + speed + "mph in " + distance + " miles.\nCoordinates (" + vertical_cord + ":" + horizontal_cord + ")");
+        System.out.println("Taking off the " + this.type_of_aircraft + " with a speed " + speed + "mph in " + distance + " miles. | Coordinates (" + vertical_cord + ":" + horizontal_cord + ")");
     }
 
     /**
@@ -64,7 +86,7 @@ public abstract class Aircraft implements Flyable{
      * @param horizontal_cord defines horizontal coordinates for landing
      */
     public void land(int speed, int distance, int vertical_cord, int horizontal_cord){
-        System.out.println("Landing the " + this.type_of_aircraft + " in " + distance + " miles\nCoordinates (" + vertical_cord + ":" + horizontal_cord + ")");
+        System.out.println("Landing the " + this.type_of_aircraft + " in " + distance + " miles | Coordinates (" + vertical_cord + ":" + horizontal_cord + ")");
     }
 
 
@@ -75,7 +97,7 @@ public abstract class Aircraft implements Flyable{
      */
     @Override
     public String toString(){
-        return "Type of aircraft: " + this.type_of_aircraft;
+        return "Type of aircraft: " + this.type_of_aircraft + " Name of aircraft: " + this.name_of_aircraft;
     }
 
 }
